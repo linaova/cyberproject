@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Bank Transfer</title>
+    </head>
+
+
+    <body>
+		<h1>Your account</h1>
+
+		<h2 style="text-align:left">Username: <td>{{user.username}} ></h2>
+
+
+
+        <form action='logout/' method="POST">
+			{% csrf_token %}
+            <input type="submit" value="Logout"/>
+        </form>
+
+        <form action="add/" method = "POST">
+            <!--         <form action="add/" method = "POST">
+                			{% csrf_token %}
+
+            -->
+            <h3 style="text-align:left">Create new note</h2>
+
+            <div class = "form-group">
+                <input type="text" name="note" placeholder="New note ">
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+		
+        <h2>Your Notes</h2>
+
+        <table>
+            {% for note in user_notes %}
+            <tr>
+            <td>
+            {{note.note}}
+
+            <form action='delete/' method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="id" value="{{note.id}}" />
+                <input type="submit" value="Delete"/>
+            </form>
+    
+            {% endfor %}
+            </table>
+
+    </body>
+
+
+    </body>
+</html>
