@@ -1,15 +1,12 @@
-from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from django.urls import reverse_lazy
-from django.views import generic
+from django.contrib.auth.models import User
+
+from django.contrib.auth import login, authenticate, logout
 
 from .models import Note
-import sys
-import sqlite3
-import string
+
 
 @login_required
 def deleteView(request):
@@ -44,3 +41,20 @@ def homePageView(request):
 	return render(request, 'cyber/index.html', {'user_notes': user_notes})
 
 
+def signUpView(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('/')
+    else:
+        form = UserCreationForm()
+    return render(request, 'cyber/signup.html', {'form': form})
+
+def logOutView(request):
+    logout(request)
+    return redirect('/')
