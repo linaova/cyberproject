@@ -124,4 +124,4 @@ https://github.com/linaova/cyberproject/blob/9689c8553839cab16a3453d8fdb12b1e9a5
 
 https://github.com/linaova/cyberproject/blob/9689c8553839cab16a3453d8fdb12b1e9a50b183/project/settings.py#L128
 
-Strengthening password policies and managing session lifetimes rigorously enhances the security framework. Django's AUTH_PASSWORD_VALIDATORS allow you to enforce complex passwords that resist common attacks such as brute-force. The session management settings not only secure the session cookie but also ensure that sessions expire when the browser is closed, reducing the risk of session hijacking.
+More strict password policies and managing session lifetimes rapidly enhances the security. Django's AUTH_PASSWORD_VALIDATORS allow you to enforce complex passwords that resist common attacks such as brute-force. The session management settings secures session cookies and ensures, that sessions expire when the browser is closed.
