@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>Bank Transfer</title>
+        <title>Your Very Own Notebook</title>
     </head>
 
 
@@ -19,7 +19,7 @@
 
         <form action="add/" method = "POST">
             <!--{% csrf_token %}-->
-            <h3 style="text-align:left">Create new note</h2>
+            <h3 style="text-align:left">Create new note:</h2>
 
             <div class = "form-group">
                 <input type="text" name="note" placeholder="New note ">
@@ -27,7 +27,7 @@
             <button type="submit" class="btn btn-primary">Save</button>
         </form>
 		
-        <h2>Your Notes</h2>
+        <h2>Your Notes:</h2>
 
         <table>
             {% for note in user_notes %}
