@@ -109,7 +109,7 @@ Security misconfiguration gives attackers and easy target to access private data
  The same goes with secret key stored in public. It is responsible for cryptographic signing, creating hashes and csrf_tockens, and storing it in document that is easily accessed makes tokens and passwords easily guessable. 
 
 
-#### Fix: [project/settings.py line 27](https://github.com/linaova/cyberproject/blob/9689c8553839cab16a3453d8fdb12b1e9a50b183/project/settings.py#L27)
+#### Fix: [project/settings.py line 27](https://github.com/linaova/cyberproject/blob/d18a2914fa90a2038a08aab55155f0c2c2c1bc53/project/settings.py#L27)
 
 
 By setting DEBUG = False and ensuring sensitive settings are not exposed, the application reduces the risk of such informational leakage. Furthermore, storing sensitive configuration details like the security key outside of the public codebase, in an environment file that is added to .gitignore, helps in securing access credentials and other critical settings from being exposed in version control.
@@ -120,8 +120,11 @@ By setting DEBUG = False and ensuring sensitive settings are not exposed, the ap
 Effective authentication systems are important so that attackers could not impersonate the user. This vulnerability includes using basic passwords or storing them as a plain text. In this application currently when registering the user there are not many requirements for the password, meaning user may use as simple password as they wish, meaning hackers could easily guess it. Also, session does not have any time out. Meaning unless user intentionally log out, they will stay logged in even after closing the browser. This is a critical security risk especially, when application is used on public computers. 
 
 #### Fixes:
-https://github.com/linaova/cyberproject/blob/9689c8553839cab16a3453d8fdb12b1e9a50b183/project/settings.py#L90
+[project/settings.py line 90](https://github.com/linaova/cyberproject/blob/9689c8553839cab16a3453d8fdb12b1e9a50b183/project/settings.py#L90)
 
-https://github.com/linaova/cyberproject/blob/9689c8553839cab16a3453d8fdb12b1e9a50b183/project/settings.py#L128
+[project/settings.py line 128](https://github.com/linaova/cyberproject/blob/9689c8553839cab16a3453d8fdb12b1e9a50b183/project/settings.py#L128)
+
+
+
 
 More strict password policies and managing session lifetimes rapidly enhances the security. Django's AUTH_PASSWORD_VALIDATORS allow you to enforce complex passwords that resist common attacks such as brute-force. The session management settings secures session cookies and ensures, that sessions expire when the browser is closed.
