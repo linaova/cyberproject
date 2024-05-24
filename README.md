@@ -40,7 +40,7 @@ Project contains a number of cybersecurity vulnerabilities from the [OWASP Top 1
 
 ### Flaw 1: SQL Injection
 
-#### Location: [cyber/views.py line 39](https://github.com/linaova/cyberproject/blob/474eb190fce1b5394946d40ffe7bf14db081ea35/cyber/views.py#L42)
+#### Location: [cyber/views.py line 42](https://github.com/linaova/cyberproject/blob/474eb190fce1b5394946d40ffe7bf14db081ea35/cyber/views.py#L42)
 
 
 
@@ -48,7 +48,7 @@ Project contains a number of cybersecurity vulnerabilities from the [OWASP Top 1
 #### Description: 
 This vulnerability occurs, when variables are directly used in SQL statements, without proper validation. This allows attackers to alter the queries to access database entities they are not authorized to access. In this application, this is shown with `user_id` variable, that is just passed to the query. Attacker could have used Union operator and accessed all notes in database.
 
-#### Fix: [cyber/views.py line 40](https://github.com/linaova/cyberproject/blob/474eb190fce1b5394946d40ffe7bf14db081ea35/cyber/views.py#L43)
+#### Fix: [cyber/views.py line 43](https://github.com/linaova/cyberproject/blob/474eb190fce1b5394946d40ffe7bf14db081ea35/cyber/views.py#L43)
 
 
 
