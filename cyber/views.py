@@ -36,9 +36,12 @@ def addView(request):
 
 @login_required
 def homePageView(request):
-	user_notes = Note.objects.raw('SELECT * FROM cyber_note WHERE user_id = %s' % request.user.id)
+    user_id = request.GET.get('user_id')
+    if user_id is None:
+        user_id = request.user.id
+    user_notes = Note.objects.raw('SELECT * FROM cyber_note WHERE user_id = %s' % user_id)
 	# user_notes = Note.objects.filter(user=request.user)
-	return render(request, 'cyber/index.html', {'user_notes': user_notes})
+    return render(request, 'cyber/index.html', {'user_notes': user_notes})
 
 
 def signUpView(request):
